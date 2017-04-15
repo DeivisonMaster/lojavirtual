@@ -8,6 +8,9 @@ package dao;
 import br.com.caelum.vraptor.ioc.Component;
 import java.util.List;
 import model.Produto;
+import org.hibernate.LockOptions;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -74,6 +77,23 @@ public class ProdutoDAO extends DAO<Produto>{
             System.out.println("Erro Lista Produtos DAO " + ex.getMessage());
         }
         return null;
+    }
+    
+    
+    public List<Produto> buscaProdutos(String nome){
+        try{
+            return this.session.createCriteria(Produto.class)
+                    .add(Restrictions.ilike("nome", nome, MatchMode.ANYWHERE)).list();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            System.out.println("Erro BUSCA PRODUTOS DAO " + ex.getMessage());
+        }
+        return null;
+    }
+    
+    
+    public void recarrega(Produto produto){
+        this.session.refresh(produto);
     }
     
 }

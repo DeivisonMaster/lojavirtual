@@ -16,13 +16,15 @@
             <fieldset>
                 <legend>Adicionar Produto</legend>
                 <label for="nome">Nome</label>
-                <input id="nome" type="text" name="produto.nome"/>
+                <input id="nome" type="text" name="produto.nome" value="${produto.nome}"/>
                 
                 <label for="nome">Descrição:</label>
-                <textarea id="descricao" rows="5" cols="30" name="produto.descricao"></textarea>
+                <textarea id="descricao" rows="5" cols="30" name="produto.descricao">
+                    ${produto.descricao}
+                </textarea>
                 
                 <label for="nome">Preço:</label>
-                <input id="preco" type="text" name="produto.preco"/>
+                <input id="preco" type="text" name="produto.preco" value="${produto.preco}"/>
                 
                 <br/>
                 

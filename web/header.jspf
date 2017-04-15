@@ -14,10 +14,30 @@
 	
 <body>
 	<div id="header">
-		
+            <div id="carrinho">
+                <h3><a href="<c:url value="/carrinho"/>">Meu carrinho</a></h3>
+                
+                
+                <c:if test="${empty carrinho or carrinho.totalDeItens eq 0}">
+                    <span>Voce não possui itens no seu carrinho</span>
+                </c:if>
+                    
+                <c:if test="${carrinho.totalDeItens > 0}">
+                    <ul>
+                        <li><strong>Itens: </strong> ${carrinho.totalDeItens}</li>
+                        <li>
+                            <strong>Total: </strong>
+                            <fmt:formatNumber type="currency" value="${carrinho.total}"/>
+                        </li>
+                    </ul>
+                </c:if>
+            </div>
 	</div>
 	<div id="erros">
 		<ul>
+                    <c:forEach items="${errors}" var="error">
+                        <li>${error.category} - ${error.message}</li>
+                    </c:forEach>
 		</ul>
 	</div>
 	<div id="body">
@@ -25,6 +45,14 @@
 			<ul>
                             <li><a href="<c:url value="/produtos/formulario"/>">Cadastrar Produto</a></li>
                             <li><a href="<c:url value="/produtos/lista"/>">Lista de Produtos</a></li>
+                            <li>
+                                <form action="<c:url value="/produtos/busca"/>">
+                                    <input id="busca" name="nome"/>
+                                </form>
+                                    <script type="text/javascript">
+                                        $("#busca").puts("Busca produtos por nome");
+                                    </script>
+                            </li>
 			</ul>
 		</div>
 		<div id="content">

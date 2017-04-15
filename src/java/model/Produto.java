@@ -18,6 +18,19 @@ import javax.persistence.Table;
  * @author DeivisondeOliveira
  */
 
+
+/*
+    HIBERNANTE VALIDATOR:
+
+    @NotNull,           para campos obrigatórios
+    @NotEmpty,          idem, mas também não aceita String vazia
+    @Length,            para impor restrições sobre o tamanho (min e max)
+    @Min e @Max,        para restringir o valor de números
+    @Past e @Future,    para impor restrições temporais
+    @Pattern,           para restringir valores usando uma expressão regular
+    @Email,             conferir validade de e-mail
+*/
+
 @Entity
 @Table(name = "produto")
 public class Produto implements Serializable {

@@ -22,6 +22,9 @@
                     <th>Nome</th>
                     <th>Descrição</th>
                     <th>Preço</th>
+                    <th>Comprar</th>
+                    <th>Editar</th>
+                    <th>Remover</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,8 +33,17 @@
                         <td>${produto.nome}</td>
                         <td>${produto.descricao}</td>
                         <td>${produto.preco}</td>
+                        <td style="width: 100px;">
+                            <form action="<c:url value="/carrinho"/>" method="POST">
+                                <input type="hidden" name="item.produto.id" value="${produto.id}"/>
+                                <input class="qtde" name="item.quantidade" value="1"/>
+                                <input type="submit" value="Comprar"/>
+                            </form>
+                        </td>
                         <td><a href="edita?id=${produto.id}">Editar</a></td>
                         <td><a href="remove?id=${produto.id}">Remover</a></td>
+                        
+                        
                     </tr>
                 </c:forEach>
             </tbody>

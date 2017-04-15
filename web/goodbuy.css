@@ -56,7 +56,7 @@ body {
 	border-top: 1px solid gray;
 	width: 100%;
 	margin: 0 auto;
-	min-height: 300px;
+	min-height: 400px;
 	padding: 10px 0;
 	float:left;
 	background-color: #dcdee0;
@@ -119,8 +119,8 @@ input, label, textarea {
 	display: block;
 }
 input.qtde {
-	display: inline;
-	width: 2em;
+	float: left;
+	width: 20px;
 }
 .hint {
 	color: gray;
@@ -147,7 +147,7 @@ fieldset legend {
 	color: #365372;
 }
 table{
-    width: 500px;
+    width: auto;
 }
 table thead {
 	background-color: #2a2948;
@@ -159,7 +159,8 @@ table tbody tr:nth-child(even) {
 	background-color: #a29bc0;
 }
 table tbody td {
-	vertical-align: text-bottom;	
+	vertical-align: text-bottom;
+        text-align: center;
 }
 table tfoot th {
 	background-color: #2a2948;
